@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Cocooned Suite Cafe - Order Form</title>
+  <style>
+    body { font-family: Arial; padding: 20px; }
+    h2 { color: #6b4f4f; }
+    .menu-item { margin-bottom: 10px; }
+    input[type="number"] { width: 50px; }
+    .total { font-size: 18px; font-weight: bold; margin-top: 20px; }
+  </style>
+</head>
+
+<body>
+
+<h2>Cocooned Suite Cafe - Order Form</h2>
+
+<form>
+
+<h3>Customer Information</h3>
+Name:<br>
+<input type="text" required><br><br>
+
+Contact Number:<br>
+<input type="text" required><br><br>
+
+Order Type:<br>
+<input type="radio" name="type"> Dine-in
+<input type="radio" name="type"> Takeout<br><br>
+
+Payment Method:<br>
+<select>
+  <option>Cash</option>
+  <option>GCash</option>
+</select>
+
+<h3>Meals</h3>
+
+<div class="menu-item">Caramelized Adobo (₱110)
+<input type="number" min="0" value="0" onchange="computeTotal()"></div>
+
+<div class="menu-item">Chicken Creamy Spinach (₱150)
+<input type="number" min="0" value="0" onchange="computeTotal()"></div>
+
+<div class="menu-item">Tocino with Kimchi (₱135)
+<input type="number" min="0" value="0" onchange="computeTotal()"></div>
+
+<div class="menu-item">Chicken Poppers (₱115)
+<input type="number" min="0" value="0" onchange="computeTotal()"></div>
+
+<h3>Sandwiches</h3>
+
+<div class="menu-item">Tuna Sandwich (₱115)
+<input type="number" min="0" value="0" onchange="computeTotal()"></div>
+
+<div class="menu-item">Tuna Clubhouse (₱175)
+<input type="number" min="0" value="0" onchange="computeTotal()"></div>
+
+<div class="menu-item">Ham & Cheese (₱85)
+<input type="number" min="0" value="0" onchange="computeTotal()"></div>
+
+<div class="menu-item">Egg Mayo (₱50)
+<input type="number" min="0" value="0" onchange="computeTotal()"></div>
+
+<h3>Beverages</h3>
+
+<div class="menu-item">Cafe Latte (₱130)
+<input type="number" min="0" value="0" onchange="computeTotal()"></div>
+
+<div class="menu-item">Chamomile (₱120)
+<input type="number" min="0" value="0" onchange="computeTotal()"></div>
+
+<div class="menu-item">Freshly Brewed (₱100)
+<input type="number" min="0" value="0" onchange="computeTotal()"></div>
+
+<div class="menu-item">Americano (₱110)
+<input type="number" min="0" value="0" onchange="computeTotal()"></div>
+
+<div class="menu-item">Loose Leaf Tea (₱100)
+<input type="number" min="0" value="0" onchange="computeTotal()"></div>
+
+<div class="menu-item">Cappuccino (₱130)
+<input type="number" min="0" value="0" onchange="computeTotal()"></div>
+
+<div class="menu-item">Cold Brew Coffee (₱135)
+<input type="number" min="0" value="0" onchange="computeTotal()"></div>
+
+<div class="menu-item">Caramel Macchiato (₱150)
+<input type="number" min="0" value="0" onchange="computeTotal()"></div>
+
+<div class="menu-item">Vanilla Latte (₱150)
+<input type="number" min="0" value="0" onchange="computeTotal()"></div>
+
+<div class="menu-item">Matcha Latte (₱130)
+<input type="number" min="0" value="0" onchange="computeTotal()"></div>
+
+<div class="menu-item">Iced Latte (₱120)
+<input type="number" min="0" value="0" onchange="computeTotal()"></div>
+
+<div class="total">
+Total: ₱<span id="total">0</span>
+</div>
+
+<br>
+<input type="submit" value="Submit Order">
+
+</form>
+
+<script>
+function computeTotal() {
+  let prices = [110,150,135,115,115,175,85,50,130,120,100,110,100,130,135,150,150,130,120];
+  let inputs = document.querySelectorAll("input[type='number']");
+  
+  let total = 0;
+  for (let i = 0; i < inputs.length; i++) {
+    total += inputs[i].value * prices[i];
+  }
+
+  document.getElementById("total").innerText = total;
+}
+</script>
+
+</body>
+</html>
